@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Paper, Link } from '@mui/material';
+import { 
+  TextField, 
+  Button, 
+  Container, 
+  Typography, 
+  Paper, 
+  Link 
+} from '@mui/material';
 import { auth } from '../Config/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore'; // Import Firestore methods if needed
-import { database } from '../Config/firebase'; // Import your Firestore instance
+import { doc, getDoc } from 'firebase/firestore'; 
+import { database } from '../Config/firebase'; 
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,24 +26,44 @@ const Login = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Save UserID in localStorage
       localStorage.setItem('UserID', user.uid);
 
-      // Fetch user data from Firestore
       const userData = await getDoc(doc(database, 'users', user.uid));
       console.log('User data:', userData.data());
 
       alert('User Login......! \n Welcome to the Dashboard...');
-      navigate('/home'); // Navigate to home page after successful login
+      navigate('/home'); 
     } catch (error) {
-      setError(error.message); // Display error message if login fails
+      setError(error.message); 
       console.error('Login Error:', error);
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <Paper elevation={3} style={{ padding: '30px', width: '100%', maxWidth: '400px', margin: '0 auto' }}>
+<Container 
+  component="main" 
+  maxWidth={false} 
+  style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh', 
+    backgroundImage: 'url(https://img.freepik.com/premium-photo/building-with-lot-windows-that-say-hotel_1103290-66730.jpg?size=626&ext=jpg&ga=GA1.1.1546934343.1721186778&semt=ais_hybrid)', 
+    backgroundSize: 'cover', 
+    backgroundPosition: 'center', 
+    width: '100%', 
+    margin: '0 auto' 
+  }}
+>
+      <Paper 
+        elevation={3} 
+        style={{ 
+          padding: '30px', 
+          width: '100%', 
+          maxWidth: '400px', 
+          backgroundColor: 'rgba(255, 255, 255, 0.8)' 
+        }}
+      >
         <Typography variant="h5" align="center" gutterBottom>
           Login
         </Typography>
@@ -59,7 +87,13 @@ const Login = () => {
             required
           />
           {error && <Typography color="error" style={{ marginTop: '10px' }}>{error}</Typography>}
-          <Button type="submit" variant="contained" color="primary" fullWidth style={{ marginTop: '20px' }}>
+          <Button 
+            type="submit" 
+            variant="contained" 
+            color="primary" 
+            fullWidth 
+            style={{ marginTop: '20px' }}
+          >
             Login
           </Button>
         </form>

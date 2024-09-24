@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
+import Navbar from '../Components/Navbar';
 
 const StyledBox = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
@@ -16,6 +17,8 @@ const StyledBox = styled(Box)(({ theme }) => ({
 
 const Home = () => {
   return (
+    <>
+    <Navbar />
     <StyledBox>
       {/* Hero Section */}
       <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -32,7 +35,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <img
-            src="https://images.unsplash.com/photo-1551808543-8b37c6c9fdaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            src="https://images.unsplash.com/photo-1535827841776-24afc1e255ac?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWwlMjAlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D"
             alt="Hotel Image"
             style={{ width: '100%', height: '100%', borderRadius: '10px' }}
           />
@@ -47,7 +50,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <ImageListItem sx={{ borderRadius: '10px' }}>
             <img
-              src="https://images.unsplash.com/photo-1516117170441-6bfa69c31f8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+              src="https://media.istockphoto.com/id/1266155634/photo/luxurious-and-elegant-bedroom-interiors.webp?a=1&b=1&s=612x612&w=0&k=20&c=LxdPMTz1TEPrMslImhUBnuH2thYMZs8nTOcnHRNFGsk="
               alt="Room Image"
             />
             <ImageListItemBar title="Luxury Rooms" />
@@ -56,7 +59,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <ImageListItem sx={{ borderRadius: '10px' }}>
             <img
-              src="https://images.unsplash.com/photo-1520250497591-112f2e82d411?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
+              src="https://plus.unsplash.com/premium_photo-1661878716924-af3c5ed5b083?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWwlMjBkaW5pbmd8ZW58MHx8MHx8fDA%3D"
               alt="Restaurant Image"
             />
             <ImageListItemBar title="Fine Dining" />
@@ -65,22 +68,16 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <ImageListItem sx={{ borderRadius: '10px' }}>
             <img
-              src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80"
-              alt="Spa Image"
+              src="https://media.istockphoto.com/id/1400240563/photo/3d-rendering-of-modern-house-with-wood-plank-facade-by-the-sea-or-ocean.jpg?s=612x612&w=0&k=20&c=dHvQPxM3wTQcW6iS20mhhZm7Vqco9tpq6e8y2TswtN4="
+              alt="Outdoor Pool"
             />
-            <ImageListItemBar title="Relaxing Spa" />
+            <ImageListItemBar title="Outdoor Pool" />
           </ImageListItem>
         </Grid>
       </Grid>
 
-      {/* Call to Action */}
-      <Typography variant="h2" component="div" gutterBottom sx={{ mt: 5 }}>
-        Book Your Stay
-      </Typography>
-      <Button variant="contained" color="primary" size="large">
-        Book Now
-      </Button>
-    </StyledBox>
+  
+    </StyledBox></>
   );
 };
 

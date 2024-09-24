@@ -12,12 +12,14 @@ import CustomerDetailList from './Screens/Booking/CustomerDetail';
 import PaymentForm from './Screens/Payment/Payment';
 import CustomerBookingDetail from './Screens/Admin/CustomerBookingDetails';
 import CustomerPaymentDetails from './Screens/Admin/PaymentDetails';
-import Staff from './Screens/Staff/Staff';
+
 import StaffList from './Screens/Staff/StaffList';
-import ServiceRequests from './Screens/Staff/ServiceRequest';
+import StaffAdd from './Screens/Staff/StaffAdd';
+import OurServices from './Screens/Sevices/OurServices';
 
 const App = () => {
   const [bookedRooms, setBookedRooms] = useState([]);
+  const [staffList, setStaffList] = useState([]); // Define staffList state here
 
   const addBookedRoom = (roomId, bookingDetails) => {
     setBookedRooms([...bookedRooms, { roomId, bookingDetails }]);
@@ -43,9 +45,10 @@ const App = () => {
         <Route path="/customerBookingDetails" element={<CustomerBookingDetail />} />
         <Route path="/customerPaymentDetails" element={<CustomerPaymentDetails />} />
         <Route path="/customerBooking/:roomId" element={<CustomerBooking />} />
-        <Route path="/staff" element={<Staff />} />
+        <Route path="/staffAdd" element={<StaffAdd  />} />
         <Route path="/staffList" element={<StaffList />} />
-        <Route path="/serviceRequest" element={<ServiceRequests />} />
+      
+        <Route path="/ourServices" element={<OurServices />} />
 
 
       </Route>
@@ -54,6 +57,3 @@ const App = () => {
 };
 
 export default App;
-
-
-

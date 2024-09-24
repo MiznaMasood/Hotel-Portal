@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { TextField, Button, Container, Typography, Paper, Link, MenuItem, FormControl, InputLabel, Select } from '@mui/material';
+import { 
+  TextField, 
+  Button, 
+  Container, 
+  Typography, 
+  Paper, 
+  Link, 
+  MenuItem, 
+  FormControl, 
+  InputLabel, 
+  Select 
+} from '@mui/material';
 import { auth } from '../Config/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState(''); // State for user role
+  const [role, setRole] = useState(''); 
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -17,18 +28,39 @@ const Signup = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Save user info and role to local storage
       localStorage.setItem('user', JSON.stringify({ email: user.email, role }));
 
-      navigate('/home'); // Redirect to home page on successful signup
+      navigate('/home'); 
     } catch (err) {
-      setError(err.message); // Set error message if signup fails
+      setError(err.message); 
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <Paper elevation={3} style={{ padding: '30px', width: '100%', maxWidth: '400px' }}>
+<Container 
+  component="main" 
+  maxWidth={false} 
+  style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh', 
+    backgroundImage: 'url(https://img.freepik.com/premium-photo/building-with-lot-windows-that-say-hotel_1103290-66730.jpg?size=626&ext=jpg&ga=GA1.1.1546934343.1721186778&semt=ais_hybrid)', 
+    backgroundSize: 'cover', 
+    backgroundPosition: 'center', 
+    width: '100%', 
+    margin: '0 auto' 
+  }}
+>
+      <Paper 
+        elevation={3} 
+        style={{ 
+          padding: '30px', 
+          width: '100%', 
+          maxWidth: '400px', 
+          backgroundColor: 'rgba(255, 255, 255, 0.8)' 
+        }}
+      >
         <Typography variant="h5" align="center" gutterBottom>
           Sign Up
         </Typography>
@@ -71,7 +103,7 @@ const Signup = () => {
 
         <Typography variant="body2" align="center" style={{ marginTop: '20px' }}>
           Already have an account?{' '}
-          <Link href="/login" underline="hover" onClick={() => navigate('/login')}>
+          <Link href="/login" underline="hover" onClick={() => navigate('/')}>
             Log in here
           </Link>
         </Typography>
@@ -81,5 +113,4 @@ const Signup = () => {
 };
 
 export default Signup;
-
 
